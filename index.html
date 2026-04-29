@@ -3,55 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa de Praia - Arraial do Cabo</title>
+    <title>Aluguel Temporada - Arraial do Cabo</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { text-align: center; background: #f4f4f4; padding: 20px; border-radius: 8px; }
-        section { margin-bottom: 30px; }
-        h1, h2 { color: #2c3e50; }
-        .foto-placeholder { background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center; margin: 10px 0; border-radius: 5px; color: #777; }
-        footer { text-align: center; font-size: 0.9em; margin-top: 50px; border-top: 1px solid #ccc; padding-top: 20px; }
+        body { 
+            font-family: sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.815), rgba(0, 0, 0, 0.801)), url('src/praia/gif-praia.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background-color: #ffffff;
+            max-width: 900px;
+            margin: 0 auto; 
+            padding: 40px;
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+        }
+
+        header { text-align: center; background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 30px;}
+        section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        h1, h2, h3 { color: #2c3e50; }
+        
+        footer { 
+            text-align: center; 
+            margin-top: 50px; 
+        }
+        
+        .footer-content {
+            padding: 30px; 
+            background-color: rgba(255, 255, 255, 0.95); 
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-links {
+            display: flex; 
+            justify-content: center; 
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap; /* Ajusta para celular */
+        }
+
+        .contact-link {
+            text-decoration: none; 
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaço entre ícone e texto */
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-3px); /* Pequeno pulo no hover */
+        }
+
+        /* Cores oficiais */
+        .link-whatsapp { color: #25D366; }
+        .link-instagram { color: #C13584; }
+        
+        /* Galeria Geral */
+        .galeria {
+            display: grid;
+            /* Se as fotos ficarem muito grandes em telas médias, aumente o 400px abaixo */
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        /* Container padrão com 400px de altura */
+        .galeria-item {
+            height: 400px;       
+            overflow: hidden;    
+            border-radius: 8px; 
+            background: #ddd;
+            display: flex;       
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Estilo padrão para imagens reais */
+        .galeria-item img {
+            width: 100%;       
+            height: 100%;      
+            object-fit: cover; /* Preenche o quadrado */
+            object-position: center; /* Padrão: centralizado */
+            transition: transform 0.3s ease; 
+        }
+
+        /* --- NOVAS REGRAS DE CORREÇÃO DE FOCO --- */
+
+        /* Aplique esta classe na <img> para mostrar o CHÃO e cortar o TETO */
+        .galeria-item img.focar-baixo {
+            object-position: bottom;
+        }
+
+        /* Aplique esta classe na <img> para mostrar o TETO e cortar o CHÃO */
+        .galeria-item img.focar-naotaobaixo {
+            object-position: 50% 57%;
+        }
+
+        /* Efeito de zoom no hover */
+        .galeria-item:hover img {
+            transform: scale(1.05); 
+        }
+        
+        /* Ajuste responsivo para celulares */
+        @media (max-width: 600px) {
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            .galeria-item {
+                height: 300px; /* Fotos ligeiramente menores no celular */
+            }
+            /* Mantém a área de limpeza mais alta no celular também, se quiser */
+            .area-limpeza-especial .galeria-item {
+                height: 450px;
+            }
+        }
+
+        .mapa-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .mapa-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer { text-align: center; font-size: 0.9em; margin-top: 50px; padding-top: 20px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Casa de Praia - Arraial do Cabo, RJ</h1>
-        <p>Proprietário: Tadeu Lückeroth | Contato: +1 (585) 978-6672 | @tadeuluckeroth</p>
-    </header>
+    <div class="container">
 
-    <section>
-        <h2>1. Apresentação Geral</h2>
-        <div class="foto-placeholder">[Foto da Fachada/Entrada]</div>
-        <p>Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa.</p>
-    </section>
+       <header>
+    <h1>Casa de Praia - Arraial do Cabo, RJ</h1>
+    
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; font-size: 0.95em; margin-top: 10px; color: #333;">
+        
+        <span>Proprietário: <strong>Tadeu Lückeroth</strong></span>
+        
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span>Contato:</span>
+            
+            <a href="https://wa.me/15859786672" target="_blank" style="text-decoration: none; color: #4CAF50; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                <i class="fab fa-whatsapp"></i> +1 (585) 978-6672
+            </a>
+            
+            <span style="color: #ccc;">|</span>
+            
+            <a href="https://instagram.com/tadeuluckeroth" target="_blank" style="text-decoration: none; color: #8E44AD; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                <i class="fab fa-instagram"></i> @tadeuluckeroth
+            </a>
+        </div>
+        
+    </div>
+</header>
 
-    <section>
-        <h2>2. Ambientes Internos</h2>
-        <h3>Sala de Estar</h3>
-        <div class="foto-placeholder">[Foto da Sala]</div>
-        <p>Ambiente aconchegante com sofá confortável, TV e Wi-Fi incluso.</p>
+        <section>
+            <h2>1. Apresentação Geral</h2>
+            <p>Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia).</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Entrada.jpeg" alt="Foto Fachada 1"></div>
+                <div class="galeria-item"><img src="src/entrada1.jpeg" alt="Foto Fachada 1"></div>
+                <div class="galeria-item"><img src="src/Garagem.jpeg" alt="Foto Garagem"></div>
+                <div class="galeria-item"><img src="src/Corredor Entrada.jpeg" alt="Foto Fachada 1"></div>
+            </div>
+        </section>
 
-        <h3>Cozinha e Área de Refeições</h3>
-        <div class="foto-placeholder">[Foto da Cozinha]</div>
-        <p>Cozinha completa com mesa de 4 cadeiras e utensílios básicos.</p>
+        <section>
+            <h2>2. Ambientes Internos</h2>
+            
+            <h3>Sala de Estar</h3>
+            <p>Ambiente aconchegante para descanso, equipado com sofá confortável, TV, ventilador e Wi-Fi incluso.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/sala2.jpeg" alt="Foto Sala 1"></div>
+                <div class="galeria-item"><img src="src/Sala.jpeg" alt="Foto Sala 2"></div>
+                <div class="galeria-item"><img src="src/sala 1.jpeg" alt="Foto Sala 3" class="focar-baixo"></div>
+                <div class="galeria-item"><img src="src/wifi.jpeg" alt="wifi"></div>
+            </div>
 
-        <h3>Quartos e Acomodações</h3>
-        <div class="foto-placeholder">[Foto dos Quartos]</div>
-        <p>A casa conta com 2 quartos bem ventilados, incluindo suítes com enxoval básico.</p>
-    </section>
+            <h3>Cozinha e Área de Refeições</h3>
+            <p>Cozinha completa para preparar suas refeições. Mesa de jantar espaçosa com 4 cadeiras. Utensílios inclusos: pano de mesa, copos, vasilhas para suco, conjunto completo de talheres, pratos e itens básicos de cozinha.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Cozinha.jpeg" alt="Foto Cozinha 1"></div>
+                <div class="galeria-item"><img src="src/Mesa.jpeg" alt="Foto Mesa de Jantar" class="focar-baixo"></div>
+                <div class="galeria-item"><img src="src/cozinha1.jpeg" alt="Foto Cozinha 2"></div>
+                <div class="galeria-item"><img src="src/Talheres, copos, pratos, etc.jpeg" alt="Foto Utensílios"></div>
+            </div>
 
-    <section>
-        <h2>3. Áreas de Lazer e Serviços</h2>
-        <h3>Varanda (Último Andar)</h3>
-        <div class="foto-placeholder">[Foto da Varanda]</div>
-        <p>Espaço privilegiado, ideal para relaxar e curtir a brisa do mar.</p>
-    </section>
+            <h3>Quartos e Acomodações</h3>
+            <p>A casa conta com 2 quartos bem ventilados. Todos os quartos contam com enxoval básico, incluindo travesseiros e fronhas.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Quarto 2.jpeg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item"><img src="src/quarto2.jpeg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item"><img src="src/Quarto 1.jpeg" alt="Foto Quarto 2"></div>
+                <div class="galeria-item"><img src="src/quarto 1 outro angulo.jpeg" alt="Foto Suíte"></div>
+                <div class="galeria-item"><img src="src/quarto 1o.jpeg" alt="Foto Quarto 1"></div>
+            </div>
 
-    <footer>
-        <p>Localização: Praia Monte Alto, Arraial do Cabo.</p>
-        <p>&copy; 2026 - Casa de Praia. Disponibilidade sob consulta.</p>
-    </footer>
+            <h3>Banheiros</h3>
+            <p>Total: 3 banheiros completos (um social no primeiro andar e duas suítes).</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Banheiro 1 outro angulo.jpeg" alt="Foto Banheiro Social"></div>
+                <div class="galeria-item"><img src="src/Banheiro 1.jpeg" alt="Foto Banheiro Suíte 1"></div>
+                <div class="galeria-item"><img src="src/Banheiro 2.jpeg" alt="Foto Banheiro Suíte 2"></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Áreas de Lazer e Serviços</h2>
+            
+            <h3>Varanda (Último Andar)</h3>
+            <p>Espaço com varanda externa no último andar.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Varanda2.jpeg" alt="Foto Varanda 2"></div>
+                <div class="galeria-item"><img src="src/Varanda.jpeg" alt="Vista da Varanda"></div>
+            </div>
+
+            <h3>Área de Limpeza</h3>
+            <p>Espaço dedicado à organização e limpeza dos seus itens de praia e uso diário.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Area limpeza.jpeg" alt="Foto Área de Limpeza 2" class="focar-naotaobaixo"></div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Observações Adicionais</h2>
+            
+            <h3>Escadas e Acessos</h3>
+            <p>A estrutura possui escada interna para acesso aos andares.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/Escada.jpeg" alt="Foto Escada 1"></div>
+                <div class="galeria-item"><img src="src/escada2.jpeg" alt="Foto Escada 2"></div>
+            </div>
+
+            <h3>Fotos da Praia Monte Alto</h3>
+            <p>Algumas belezas da região.</p>
+            <div class="galeria">
+                <div class="galeria-item"><img src="src/praia/4.jpeg" alt="Foto da Praia Monte Alto 3"></div>
+                <div class="galeria-item"><img src="src/praia/6.jpeg" alt="Foto da Praia Monte Alto 5"></div>
+                <div class="galeria-item"><img src="src/praia/22.png" alt="Foto da Praia Monte Alto 7"></div>
+                <div class="galeria-item"><img src="src/praia/33.png" alt="Foto da Praia Monte Alto 8"></div>
+                <div class="galeria-item"><img src="src/praia/11.png" alt="Foto da Praia Monte Alto 6"></div>
+                <div class="galeria-item"><img src="src/praia/5.jpeg" alt="Foto da Praia Monte Alto 4"></div>
+                <div class="galeria-item"><img src="src/praia/2.jpeg" alt="Foto da Praia Monte Alto 1"></div>
+                <div class="galeria-item"><img src="src/praia/3.jpeg" alt="Foto da Praia Monte Alto 2"></div>
+            </div>
+            
+            <h3>Localização</h3>
+            <p>Arraial do Cabo - Praia Monte Alto</p>
+            <p><em>(Localização exata fornecida apenas ao confirmar a reserva)</em></p>
+            
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9650392341913!2d-42.09633512401764!3d-22.91465227924976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x971a8141cd1cb9%3A0xcb1b51e9ed7f3e8!2sMonte%20Alto%2C%20Arraial%20do%20Cabo%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1714000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <h3>Entre em contato para reservas:</h3>
+                
+                <div class="contact-links">
+                    <a href="https://wa.me/15859786672" target="_blank" class="contact-link link-whatsapp">
+                        <i class="fab fa-whatsapp fa-2x"></i> WhatsApp
+                    </a>
+                    
+                    <a href="https://www.instagram.com/tadeuluckeroth" target="_blank" class="contact-link link-instagram">
+                        <i class="fab fa-instagram fa-2x"></i> Instagram
+                    </a>
+                </div>
+                
+                <p style="margin-top: 25px; font-size: 0.85em; color: #555;">
+                    Proprietário: Tadeu Lückeroth | © 2026 Disponibilidade sob consulta.
+                </p>
+            </div>
+        </footer>
+    </div>
 
 </body>
 </html>
