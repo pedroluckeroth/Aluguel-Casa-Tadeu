@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aluguel Temporada - Arraial do Cabo</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* reset e fundo */
         body { 
             font-family: sans-serif; 
             line-height: 1.6; 
@@ -17,6 +21,7 @@
             background-attachment: fixed;
         }
 
+        /* container */
         .container {
             background-color: #ffffff;
             max-width: 900px;
@@ -26,10 +31,47 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
         }
 
+        /* tipografia */
         header { text-align: center; background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 30px;}
         section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
         h1, h2, h3 { color: #2c3e50; }
+
+        /* header responsivo */
+        .header-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.95em;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .header-contatos {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .separador-header {
+            color: #ccc;
+        }
+
+        @media (max-width: 600px) {
+            .header-info {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .header-contatos {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .separador-header {
+                display: none;
+            }
+        }
         
+        /* footer */
         footer { 
             text-align: center; 
             margin-top: 50px; 
@@ -47,7 +89,7 @@
             justify-content: center; 
             gap: 30px;
             margin-top: 15px;
-            flex-wrap: wrap; /* Ajusta para celular */
+            flex-wrap: wrap;
         }
 
         .contact-link {
@@ -56,28 +98,25 @@
             font-size: 1.1em;
             display: flex;
             align-items: center;
-            gap: 10px; /* Espaço entre ícone e texto */
+            gap: 10px;
             transition: transform 0.2s ease;
         }
         
         .contact-link:hover {
-            transform: translateY(-3px); /* Pequeno pulo no hover */
+            transform: translateY(-3px);
         }
 
-        /* Cores oficiais */
         .link-whatsapp { color: #25D366; }
         .link-instagram { color: #C13584; }
         
-        /* Galeria Geral */
+        /* galeria */
         .galeria {
             display: grid;
-            /* Se as fotos ficarem muito grandes em telas médias, aumente o 400px abaixo */
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 15px;
             margin: 15px 0;
         }
 
-        /* Container padrão com 400px de altura */
         .galeria-item {
             height: 400px;       
             overflow: hidden;    
@@ -88,46 +127,40 @@
             justify-content: center;
         }
 
-        /* Estilo padrão para imagens reais */
         .galeria-item img {
             width: 100%;       
             height: 100%;      
-            object-fit: cover; /* Preenche o quadrado */
-            object-position: center; /* Padrão: centralizado */
+            object-fit: cover;
+            object-position: center;
             transition: transform 0.3s ease; 
         }
 
-        /* --- NOVAS REGRAS DE CORREÇÃO DE FOCO --- */
-
-        /* Aplique esta classe na <img> para mostrar o CHÃO e cortar o TETO */
+        /* foco imagens */
         .galeria-item img.focar-baixo {
             object-position: bottom;
         }
 
-        /* Aplique esta classe na <img> para mostrar o TETO e cortar o CHÃO */
         .galeria-item img.focar-naotaobaixo {
             object-position: 50% 57%;
         }
 
-        /* Efeito de zoom no hover */
         .galeria-item:hover img {
             transform: scale(1.05); 
         }
         
-        /* Ajuste responsivo para celulares */
         @media (max-width: 600px) {
             .galeria {
                 grid-template-columns: 1fr;
             }
             .galeria-item {
-                height: 300px; /* Fotos ligeiramente menores no celular */
+                height: 300px;
             }
-            /* Mantém a área de limpeza mais alta no celular também, se quiser */
             .area-limpeza-especial .galeria-item {
                 height: 450px;
             }
         }
 
+        /* mapa */
         .mapa-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -145,36 +178,33 @@
             border: 0;
         }
 
-        footer { text-align: center; font-size: 0.9em; margin-top: 50px; padding-top: 20px; }
     </style>
 </head>
 <body>
 
     <div class="container">
 
-       <header>
-    <h1>Casa de Praia - Arraial do Cabo, RJ</h1>
-    
-    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; font-size: 0.95em; margin-top: 10px; color: #333;">
-        
-        <span>Proprietário: <strong>Tadeu Lückeroth</strong></span>
-        
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <span>Contato:</span>
+        <header>
+            <h1>Casa de Praia - Arraial do Cabo, RJ</h1>
             
-            <a href="https://wa.me/15859786672" target="_blank" style="text-decoration: none; color: #4CAF50; font-weight: bold; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-whatsapp"></i> +1 (585) 978-6672
-            </a>
-            
-            <span style="color: #ccc;">|</span>
-            
-            <a href="https://instagram.com/tadeuluckeroth" target="_blank" style="text-decoration: none; color: #8E44AD; font-weight: bold; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-instagram"></i> @tadeuluckeroth
-            </a>
-        </div>
-        
-    </div>
-</header>
+            <div class="header-info">
+                <span>Proprietário: <strong>Tadeu Lückeroth</strong></span>
+                
+                <div class="header-contatos">
+                    <span>Contato:</span>
+                    
+                    <a href="https://wa.me/15859786672" target="_blank" style="text-decoration: none; color: #4CAF50; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                        <i class="fab fa-whatsapp"></i> +1 (585) 978-6672
+                    </a>
+                    
+                    <span class="separador-header">|</span>
+                    
+                    <a href="https://instagram.com/tadeuluckeroth" target="_blank" style="text-decoration: none; color: #8E44AD; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                        <i class="fab fa-instagram"></i> @tadeuluckeroth
+                    </a>
+                </div>
+            </div>
+        </header>
 
         <section>
             <h2>1. Apresentação Geral</h2>
@@ -248,7 +278,7 @@
             <h2>4. Observações Adicionais</h2>
             
             <h3>Escadas e Acessos</h3>
-            <p>A estrutura possui escada interna para acesso aos andares.</p>
+            <p>A structure possui escada interna para acesso aos andares.</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/Escada.jpeg" alt="Foto Escada 1"></div>
                 <div class="galeria-item"><img src="src/escada2.jpeg" alt="Foto Escada 2"></div>
