@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluguel Temporada - Arraial do Cabo</title>
+    <title data-pt="Aluguel Temporada - Arraial do Cabo" data-en="Vacation Rental - Arraial do Cabo">Aluguel Temporada - Arraial do Cabo</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     
     <style>
-        /* reset e fundo */
+        /* // reset e fundo */
         body { 
             font-family: sans-serif; 
             line-height: 1.6; 
@@ -25,7 +24,7 @@
             background-attachment: fixed;
         }
 
-        /* container */
+        /* // container */
         .container {
             background-color: #ffffff;
             max-width: 900px;
@@ -35,21 +34,21 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
         }
 
-        /* tipografia */
-        header { text-align: center; background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 30px;}
+        /* // tipografia */
+        header { text-align: center; background: #f4f4f4; padding: 20px; border-radius: 8px; margin-bottom: 20px;}
         section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
         h1, h2, h3 { color: #2c3e50; }
 
-        /* tipografia do header */
+        /* // tipografia do header */
         header h1 { 
-        font-family: 'Righteous', sans-serif; 
-        margin: 5px 0; 
-        color: #1a252f; 
-        text-transform: uppercase; 
-        letter-spacing: 1px; 
+            font-family: 'Righteous', sans-serif; 
+            margin: 5px 0; 
+            color: #1a252f; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
         }
 
-        /* header responsivo */
+        /* // header responsivo */
         .header-info {
             display: flex;
             justify-content: center;
@@ -69,6 +68,32 @@
         .separador-header {
             color: #ccc;
         }
+        
+        /* // seletor de idiomas */
+        .lang-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .lang-selector select {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 0.85em;
+            cursor: pointer;
+            background-color: #fff;
+            color: #555;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-selector select:hover {
+            border-color: #a0a0a0;
+            background-color: #f9f9f9;
+        }
 
         @media (max-width: 600px) {
             .header-info {
@@ -84,7 +109,7 @@
             }
         }
         
-        /* footer */
+        /* // footer */
         footer { 
             text-align: center; 
             margin-top: 50px; 
@@ -122,7 +147,7 @@
         .link-whatsapp { color: #25D366; }
         .link-instagram { color: #C13584; }
         
-        /* galeria */
+        /* // galeria */
         .galeria {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -140,7 +165,7 @@
             justify-content: center;
         }
 
-        .galeria-item img {
+        .galeria-item img, .galeria-item video {
             width: 100%;       
             height: 100%;      
             object-fit: cover;
@@ -148,7 +173,7 @@
             transition: transform 0.3s ease; 
         }
 
-        /* foco imagens */
+        /* // foco imagens */
         .galeria-item img.focar-baixo {
             object-position: bottom;
         }
@@ -157,7 +182,7 @@
             object-position: 50% 57%;
         }
 
-        .galeria-item:hover img {
+        .galeria-item:hover img, .galeria-item:hover video {
             transform: scale(1.05); 
         }
         
@@ -173,7 +198,7 @@
             }
         }
 
-        /* mapa */
+        /* // mapa */
         .mapa-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -198,14 +223,14 @@
     <div class="container">
 
         <header>
-            <h1>Aluguel de temporada</h1>
-            <h1>Monte Alto - Arraial do Cabo, RJ</h1>
+            <h1 data-pt="Aluguel de temporada" data-en="Vacation Rental">Aluguel de temporada</h1>
+            <h1 data-pt="Monte Alto - Arraial do Cabo, RJ" data-en="Monte Alto - Arraial do Cabo, RJ">Monte Alto - Arraial do Cabo, RJ</h1>
             
             <div class="header-info">
-                <span>Proprietário: <strong>Tadeu Lückeroth</strong></span>
+                <span data-pt="Proprietário: <strong>Tadeu Lückeroth</strong>" data-en="Owner: <strong>Tadeu Lückeroth</strong>">Proprietário: <strong>Tadeu Lückeroth</strong></span>
                 
                 <div class="header-contatos">
-                    <span>Contato:</span>
+                    <span data-pt="Contato:" data-en="Contact:">Contato:</span>
                     
                     <a href="https://wa.me/553199076191" target="_blank" style="text-decoration: none; color: #4CAF50; font-weight: bold; display: flex; align-items: center; gap: 5px;">
                         <i class="fab fa-whatsapp"></i> +55 31 9907-6191
@@ -220,9 +245,16 @@
             </div>
         </header>
 
+        <div class="lang-selector">
+            <select onchange="changeLanguage(this.value)">
+                <option value="pt">🇧🇷 Português (BR)</option>
+                <option value="en">🇺🇸 English (US)</option>
+            </select>
+        </div>
+
         <section>
-            <h2>1. Apresentação Geral</h2>
-            <p>Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia).</p>
+            <h2 data-pt="1. Apresentação Geral" data-en="1. General Overview">1. Apresentação Geral</h2>
+            <p data-pt="Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia)." data-en="This property has 3 floors, a garage with space for 2 cars, and a practical entrance with an outdoor shower (ideal for washing off sand after returning from the beach).">Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia).</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/Entrada.jpeg" alt="Foto Fachada 1"></div>
                 <div class="galeria-item"><img src="src/entrada1.jpeg" alt="Foto Fachada 1"></div>
@@ -232,42 +264,57 @@
         </section>
 
         <section>
-            <h2>2. Ambientes Internos</h2>
+            <h2 data-pt="2. Ambientes Internos" data-en="2. Indoor Spaces">2. Ambientes Internos</h2>
             
             <h3>Sala de Estar</h3>
-            <p>Ambiente aconchegante para descanso, equipado com sofá confortável, TV, ventilador e Wi-Fi incluso.</p>
+            <p data-pt="Ambiente aconchegante para descanso, equipado com sofá confortável, TV, ventilador e Wi-Fi incluso." data-en="Cozy environment for resting, equipped with a comfortable sofa, TV, fan, and Wi-Fi included.">Ambiente aconchegante para descanso, equipado com sofá confortável, TV, ventilador e Wi-Fi incluso.</p>
             <div class="galeria">
-                <div class="galeria-item"><img src="src/sala2.jpeg" alt="Foto Sala 1"></div>
-                <div class="galeria-item"><img src="src/Sala.jpeg" alt="Foto Sala 2"></div>
-                <div class="galeria-item"><img src="src/sala 1.jpeg" alt="Foto Sala 3" class="focar-baixo"></div>
+                <div class="galeria-item"><img src="src/sala.jpg" alt="Foto Sala 2"></div>
+                <div class="galeria-item"><img src="src/tv.jpg" alt="Foto tv"></div>
+                <div class="galeria-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="src/video entrada.MOV" type="video/mp4">
+                    </video>
+                </div>
                 <div class="galeria-item"><img src="src/wifi.jpeg" alt="wifi"></div>
             </div>
 
             <h3>Cozinha e Área de Refeições</h3>
-            <p>Cozinha completa para preparar suas refeições. Mesa de jantar espaçosa com 4 cadeiras. Utensílios inclusos: pano de mesa, copos, vasilhas para suco, conjunto completo de talheres, pratos e itens básicos de cozinha.</p>
+            <p data-pt="Cozinha completa para preparar suas refeições. Mesa de jantar espaçosa com 4 cadeiras. Utensílios inclusos: pano de mesa, copos, vasilhas para suco, conjunto completo de talheres, pratos e itens básicos de cozinha." data-en="Full kitchen to prepare your meals. Spacious dining table with 4 chairs. Utensils included: tablecloth, glasses, juice pitchers, complete set of cutlery, plates, and basic kitchen items like a blender.">Cozinha completa para preparar suas refeições. Mesa de jantar espaçosa com 4 cadeiras. Utensílios inclusos: pano de mesa, copos, vasilhas para suco, conjunto completo de talheres, pratos e itens básicos de cozinha como um liquidificador.</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/Cozinha.jpeg" alt="Foto Cozinha 1"></div>
-                <div class="galeria-item"><img src="src/Mesa.jpeg" alt="Foto Mesa de Jantar" class="focar-baixo"></div>
-                <div class="galeria-item"><img src="src/cozinha1.jpeg" alt="Foto Cozinha 2"></div>
+                <div class="galeria-item"><img src="src/cozinha e mesa.jpg" alt="Foto Cozinha 2"></div>
+                <div class="galeria-item"><img src="src/pia.jpg" alt="pia"></div>
                 <div class="galeria-item"><img src="src/Talheres, copos, pratos, etc.jpeg" alt="Foto Utensílios"></div>
+                <div class="galeria-item"><img src="src/mesa.jpg" alt="Foto Mesa de Jantar" class="focar-baixo"></div>
             </div>
 
             <h3>Quartos e Acomodações</h3>
-            <p>A casa conta com 2 quartos com suite. Todos os quartos contam com enxoval básico, incluindo travesseiros e fronhas, além das camas possuírem uma cama auxiliar em baixo.</p>
+            <p data-pt="A casa conta com 2 quartos com suite. Todos os quartos contam com enxoval básico, incluindo travesseiros e fronhas, além das camas possuírem uma cama auxiliar em baixo." data-en="The house has 2 en-suite bedrooms. All bedrooms come with basic bedding, including pillows and pillowcases, plus the beds have a trundle bed underneath.">A casa conta com 2 quartos com suite. Todos os quartos contam com enxoval básico, incluindo travesseiros e fronhas, além das camas possuírem uma cama auxiliar em baixo.</p>
             <div class="galeria">
-                <div class="galeria-item"><img src="src/Quarto 2.jpeg" alt="Foto Quarto 1"></div>
-                <div class="galeria-item"><img src="src/quarto2.jpeg" alt="Foto Quarto 1"></div>
-                <div class="galeria-item"><img src="src/Quarto 1.jpeg" alt="Foto Quarto 2"></div>
-                <div class="galeria-item"><img src="src/quarto 1 outro angulo.jpeg" alt="Foto Suíte"></div>
-                <div class="galeria-item"><img src="src/quarto 1o.jpeg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="src/quarto-video.MOV" type="video/mp4">
+                    </video>
+                </div>
+                <div class="galeria-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="src/video2 quarrt.MOV" type="video/mp4">
+                    </video>
+                </div>
+                <div class="galeria-item"><img src="src/quarto 2b.jpg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item"><img src="src/quarto 1a.jpg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item"><img src="src/guardaroupa.jpg" alt="Foto Quarto 1"></div>
+                <div class="galeria-item"><img src="src/guardaroupa2.jpg" alt="Foto Quarto 1"></div>
             </div>
 
             <h3>Banheiros</h3>
-            <p>Total: 3 banheiros completos (um social no primeiro andar e duas suítes).</p>
+            <p data-pt="Total: 3 banheiros completos (um social no primeiro andar e duas suítes)." data-en="Total: 3 full bathrooms (one guest bathroom on the first floor and two en-suites).">Total: 3 banheiros completos (um social no primeiro andar e duas suítes).</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/Banheiro 1 outro angulo.jpeg" alt="Foto Banheiro Social"></div>
                 <div class="galeria-item"><img src="src/Banheiro 1.jpeg" alt="Foto Banheiro Suíte 1"></div>
-                <div class="galeria-item"><img src="src/Banheiro 2.jpeg" alt="Foto Banheiro Suíte 2"></div>
+                <div class="galeria-item"><img src="src/Banheiro 2.jpeg" alt="Foto Banheiro Suíte 1"></div>
+                <div class="galeria-item"><img src="src/banheiro q2.jpg" alt="Foto Banheiro Suíte 2"></div>
             </div>
         </section>
 
@@ -275,16 +322,17 @@
             <h2>3. Áreas de Lazer e Serviços</h2>
             
             <h3>Varanda (Último Andar)</h3>
-            <p>Espaço com varanda externa no último andar.</p>
+            <p data-pt="Espaço com varanda externa no último andar." data-en="Space with an outdoor balcony on the top floor.">Espaço com varanda externa no último andar.</p>
             <div class="galeria">
-                <div class="galeria-item"><img src="src/Varanda2.jpeg" alt="Foto Varanda 2"></div>
+                <div class="galeria-item"><img src="src/varanda1.jpg" alt="Foto Varanda 2"></div>
                 <div class="galeria-item"><img src="src/Varanda.jpeg" alt="Vista da Varanda"></div>
+                <div class="galeria-item"><img src="src/varanda3.jpg" alt="Vista da Varanda"></div>
             </div>
 
             <h3>Área de Limpeza</h3>
-            <p>Espaço dedicado à organização e limpeza dos seus itens de praia e uso diário.</p>
+            <p data-pt="Espaço dedicado à organização e limpeza dos seus itens de praia e uso diário." data-en="Dedicated space for organizing and cleaning your beach items and daily use.">Espaço dedicado à organization e limpeza dos seus itens de praia e uso diário.</p>
             <div class="galeria">
-                <div class="galeria-item"><img src="src/Area limpeza.jpeg" alt="Foto Área de Limpeza 2" class="focar-naotaobaixo"></div>
+                <div class="galeria-item"><img src="src/Area limpeza.jpeg" alt="Foto Área de Limpeza" class="focar-naotaobaixo"></div>
             </div>
         </section>
 
@@ -292,14 +340,14 @@
             <h2>4. Observações Adicionais</h2>
             
             <h3>Escadas e Acessos</h3>
-            <p>A estrutura possui uma escada interna para acesso aos andares.</p>
+            <p data-pt="A estrutura possui escada interna para acesso aos andares." data-en="The structure has an internal staircase for accessing the floors.">A estrutura possui escada interna para acesso aos andares.</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/Escada.jpeg" alt="Foto Escada 1"></div>
                 <div class="galeria-item"><img src="src/escada2.jpeg" alt="Foto Escada 2"></div>
             </div>
 
             <h3>Fotos da Praia Monte Alto</h3>
-            <p>Algumas belezas da região.</p>
+            <p data-pt="Algumas belezas da região." data-en="Some beauties of the region.">Algumas belezas da região.</p>
             <div class="galeria">
                 <div class="galeria-item"><img src="src/praia/4.jpeg" alt="Foto da Praia Monte Alto 3"></div>
                 <div class="galeria-item"><img src="src/praia/6.jpeg" alt="Foto da Praia Monte Alto 5"></div>
@@ -312,8 +360,8 @@
             </div>
             
             <h3>Localização</h3>
-            <p>Arraial do Cabo - Praia Monte Alto</p>
-            <p><em>(Localização exata fornecida apenas ao confirmar a reserva)</em></p>
+            <p data-pt="Arraial do Cabo - Praia Monte Alto" data-en="Arraial do Cabo - Monte Alto Beach">Arraial do Cabo - Praia Monte Alto</p>
+            <p data-pt="<em>(Localização exata fornecida apenas ao confirmar a reserva)</em>" data-en="<em>(Exact location provided only upon booking confirmation)</em>"><em>(Localização exata fornecida apenas ao confirmar a reserva)</em></p>
             
             <div class="mapa-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.9650392341913!2d-42.09633512401764!3d-22.91465227924976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x971a8141cd1cb9%3A0xcb1b51e9ed7f3e8!2sMonte%20Alto%2C%20Arraial%20do%20Cabo%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1714000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -323,7 +371,7 @@
 
         <footer>
             <div class="footer-content">
-                <h3>Entre em contato para reservas:</h3>
+                <h3 data-pt="Entre em contato para reservas:" data-en="Contact us for reservations:">Entre em contato para reservas:</h3>
                 
                 <div class="contact-links">
                     <a href="https://wa.me/553199076191" target="_blank" class="contact-link link-whatsapp">
@@ -335,12 +383,40 @@
                     </a>
                 </div>
                 
-                <p style="margin-top: 25px; font-size: 0.85em; color: #555;">
+                <p data-pt="Proprietário: Tadeu Lückeroth | © 2026 Disponibilidade sob consulta." data-en="Owner: Tadeu Lückeroth | © 2026 Availability upon request." style="margin-top: 25px; font-size: 0.85em; color: #555;">
                     Proprietário: Tadeu Lückeroth | © 2026 Disponibilidade sob consulta.
                 </p>
             </div>
         </footer>
     </div>
 
+    <script>
+        function changeLanguage(lang) {
+            const translatableElements = document.querySelectorAll('[data-pt]');
+            
+            translatableElements.forEach(el => {
+                if (el.hasAttribute('data-' + lang)) {
+                    el.innerHTML = el.getAttribute('data-' + lang);
+                }
+            });
+            
+            const titleEl = document.querySelector('title');
+            if (titleEl && titleEl.hasAttribute('data-' + lang)) {
+                document.title = titleEl.getAttribute('data-' + lang);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const fundos = [
+                'src/praia/gif-praia.webp',
+                'src/praia/gif-praia2.gif'
+            ];
+            
+            const indiceAleatorio = Math.floor(Math.random() * fundos.length);
+            const fundoEscolhido = fundos[indiceAleatorio];
+            
+            document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.815), rgba(0, 0, 0, 0.801)), url('${fundoEscolhido}')`;
+        });
+    </script>
 </body>
 </html>
