@@ -207,6 +207,194 @@
             }
         }
 
+
+        /* // sistema de âncoras */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
+        section[id], header[id], footer[id] {
+            scroll-margin-top: 20px;
+        }
+
+        .menu-ancoras {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(8px);
+        }
+
+        .menu-ancoras a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 125px;
+            padding: 9px 12px;
+            border-radius: 9px;
+            color: #2c3e50;
+            background: transparent;
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease, color 0.2s ease,
+                        transform 0.2s ease;
+        }
+
+        .menu-ancoras a:hover,
+        .menu-ancoras a:focus-visible {
+            background: #2c3e50;
+            color: #fff;
+            transform: translateX(3px);
+            outline: none;
+        }
+
+        .menu-ancoras i {
+            width: 18px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .menu-ancoras {
+                left: 50%;
+                bottom: 10px;
+                transform: translateX(-50%);
+                width: calc(100% - 20px);
+                max-width: 520px;
+                box-sizing: border-box;
+                flex-direction: row;
+                justify-content: space-around;
+                gap: 4px;
+                padding: 6px;
+                border-radius: 14px;
+            }
+
+            .menu-ancoras a {
+                flex: 1 1 0;
+                min-width: 0;
+                width: auto;
+                height: 42px;
+                padding: 0 6px;
+                justify-content: center;
+                border-radius: 9px;
+                font-size: 0.68rem;
+                gap: 4px;
+                flex-direction: column;
+                line-height: 1;
+            }
+
+            .menu-ancoras a i {
+                width: auto;
+                font-size: 0.95rem;
+            }
+
+            .menu-ancoras a span {
+                display: block;
+                white-space: nowrap;
+            }
+
+            .menu-ancoras a:hover,
+            .menu-ancoras a:focus-visible {
+                transform: none;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px 15px;
+                border-radius: 10px;
+            }
+
+            header {
+                padding: 15px 10px;
+            }
+
+            header h1 {
+                font-size: clamp(1.25rem, 6vw, 1.8rem);
+            }
+
+            .header-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .header-contatos {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            section {
+                margin-bottom: 28px;
+                padding-bottom: 15px;
+            }
+
+            section > h2 {
+                font-size: 1.35rem;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .galeria-item {
+                height: min(72vw, 320px);
+            }
+
+            .mapa-container {
+                margin-bottom: 20px;
+            }
+
+            footer {
+                margin-top: 30px;
+                padding-bottom: 70px;
+            }
+
+            .footer-content {
+                padding: 20px 15px;
+            }
+
+            .contact-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .menu-ancoras {
+                width: calc(100% - 12px);
+                bottom: 6px;
+            }
+
+            .menu-ancoras a {
+                height: 40px;
+                font-size: 0.58rem;
+            }
+
+            .menu-ancoras a i {
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 15px 10px;
+            }
+
+            .header-contatos a {
+                font-size: 0.85rem !important;
+            }
+        }
+
         /* // mapa */
         .mapa-container {
             position: relative;
@@ -230,9 +418,42 @@
 </head>
 <body>
 
+
+    <!-- SISTEMA DE ÂNCORAS -->
+    <nav class="menu-ancoras" aria-label="Navegação rápida">
+        <a href="#inicio" aria-label="Início" title="Início">
+            <i class="fas fa-home" aria-hidden="true"></i>
+            <span>Início</span>
+        </a>
+        <a href="#condicoes" aria-label="Condições de locação" title="Condições">
+            <i class="fas fa-file-contract" aria-hidden="true"></i>
+            <span>Condições</span>
+        </a>
+        <a href="#apresentacao" aria-label="Apresentação geral" title="Apresentação">
+            <i class="fas fa-house" aria-hidden="true"></i>
+            <span>Apresentação</span>
+        </a>
+        <a href="#ambientes" aria-label="Ambientes internos" title="Ambientes">
+            <i class="fas fa-couch" aria-hidden="true"></i>
+            <span>Ambientes</span>
+        </a>
+        <a href="#lazer" aria-label="Áreas de lazer e serviços" title="Lazer">
+            <i class="fas fa-umbrella-beach" aria-hidden="true"></i>
+            <span>Lazer</span>
+        </a>
+        <a href="#observacoes" aria-label="Observações e localização" title="Observações">
+            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            <span>Localização</span>
+        </a>
+        <a href="#contato" aria-label="Contato e reservas" title="Contato">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+            <span>Contato</span>
+        </a>
+    </nav>
+
     <div class="container">
 
-        <header>
+        <header id="inicio">
             <h1 data-pt="Aluguel de temporada" data-en="Vacation Rental">Aluguel de temporada</h1>
             <h1 data-pt="Monte Alto - Arraial do Cabo, RJ" data-en="Monte Alto - Arraial do Cabo, RJ">Monte Alto - Arraial do Cabo, RJ</h1>
             
@@ -263,7 +484,7 @@
         </div>
 
         <!-- CONDIÇÕES DE LOCAÇÃO -->
-        <section style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 5px solid #2c3e50;">
+        <section id="condicoes" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 5px solid #2c3e50;">
             <h2 data-pt="Condições de Locação" data-en="Rental Conditions" style="margin-top: 0;">Condições de Locação</h2>
             <ul class="lista-informacoes" style="margin-bottom: 0;">
                 <li data-pt="<strong>Mínimo:</strong> 05 dias para locação" data-en="<strong>Minimum:</strong> 05 days for rental"><strong>Mínimo:</strong> 05 dias para locação</li>
@@ -271,7 +492,7 @@
             </ul>
         </section>
 
-        <section>
+        <section id="apresentacao">
             <h2 data-pt="1. Apresentação Geral" data-en="1. General Overview">1. Apresentação Geral</h2>
             <p data-pt="Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia)." data-en="This property has 3 floors, a garage with space for 2 cars, and a practical entrance with an outdoor shower (ideal for washing off sand after returning from the beach).">Este imóvel possui 3 andares, garagem com espaço para 2 carros e uma entrada com acesso prático com ducha externa (ideal para retirar a areia ao retornar da praia).</p>
             <div class="galeria">
@@ -282,7 +503,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="ambientes">
             <h2 data-pt="2. Ambientes Internos" data-en="2. Indoor Spaces">2. Ambientes Internos</h2>
             
             <h3>Sala de Estar</h3>
@@ -337,7 +558,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="lazer">
             <h2>3. Áreas de Lazer e Serviços</h2>
             
             <h3>Varanda (Último Andar)</h3>
@@ -355,7 +576,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="observacoes">
             <h2>4. Observações Adicionais</h2>
             
             <h3>Escadas e Acessos</h3>
@@ -405,7 +626,7 @@
             
         </section>
 
-        <footer>
+        <footer id="contato">
             <div class="footer-content">
                 <h3 data-pt="Entre em contato para reservas:" data-en="Contact us for reservations:">Entre em contato para reservas:</h3>
                 
