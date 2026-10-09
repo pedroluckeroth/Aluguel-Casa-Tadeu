@@ -234,6 +234,58 @@
             backdrop-filter: blur(8px);
         }
 
+        .menu-ancoras {
+            position: fixed;
+        }
+
+        .menu-ancoras-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toggle-ancoras {
+            position: absolute;
+            right: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 0 10px 10px 0;
+            background: #2c3e50;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.14);
+            transition: background-color .2s ease, right .25s ease;
+        }
+
+        .toggle-ancoras:hover,
+        .toggle-ancoras:focus-visible {
+            background: #1a252f;
+            outline: 2px solid #8eb9df;
+            outline-offset: 2px;
+        }
+
+        .menu-ancoras.recolhido {
+            padding: 8px;
+        }
+
+        .menu-ancoras.recolhido .menu-ancoras-links {
+            display: none;
+        }
+
+        .menu-ancoras.recolhido .toggle-ancoras i {
+            transform: rotate(180deg);
+        }
+
+        .toggle-ancoras i {
+            transition: transform .25s ease;
+        }
+
         .menu-ancoras a {
             display: flex;
             align-items: center;
@@ -276,6 +328,37 @@
                 gap: 4px;
                 padding: 6px;
                 border-radius: 14px;
+            }
+
+            .menu-ancoras-links {
+                flex-direction: row;
+                flex: 1;
+                min-width: 0;
+                gap: 4px;
+            }
+
+            .toggle-ancoras {
+                position: static;
+                transform: none;
+                flex: 0 0 30px;
+                width: 30px;
+                height: 42px;
+                border-radius: 9px;
+                box-shadow: none;
+            }
+
+            .menu-ancoras.recolhido {
+                width: auto;
+                max-width: none;
+                left: auto;
+                right: 10px;
+                transform: none;
+                padding: 6px;
+            }
+
+            .menu-ancoras.recolhido .toggle-ancoras {
+                flex-basis: 42px;
+                width: 42px;
             }
 
             .menu-ancoras a {
@@ -420,7 +503,11 @@
 
 
     <!-- SISTEMA DE ÂNCORAS -->
-    <nav class="menu-ancoras" aria-label="Navegação rápida">
+    <nav class="menu-ancoras" id="menu-ancoras" aria-label="Navegação rápida">
+        <button class="toggle-ancoras" type="button" aria-label="Recolher menu de navegação" aria-expanded="true" aria-controls="menu-ancoras-links" title="Recolher menu">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <div class="menu-ancoras-links" id="menu-ancoras-links">
         <a href="#inicio" aria-label="Início" title="Início">
             <i class="fas fa-home" aria-hidden="true"></i>
             <span>Início</span>
@@ -449,6 +536,7 @@
             <i class="fas fa-comments" aria-hidden="true"></i>
             <span>Contato</span>
         </a>
+        </div>
     </nav>
 
     <div class="container">
@@ -646,6 +734,28 @@
     </div>
 
     <script>
+        // Recolher/expandir a navegação
+        document.addEventListener('DOMContentLoaded', () => {
+            const menu = document.getElementById('menu-ancoras');
+            const toggle = menu?.querySelector('.toggle-ancoras');
+            const icon = toggle?.querySelector('i');
+
+            if (!menu || !toggle || !icon) return;
+
+            toggle.addEventListener('click', () => {
+                const recolhido = menu.classList.toggle('recolhido');
+                toggle.setAttribute('aria-expanded', String(!recolhido));
+                toggle.setAttribute(
+                    'aria-label',
+                    recolhido ? 'Expandir menu de navegação' : 'Recolher menu de navegação'
+                );
+                toggle.title = recolhido ? 'Expandir menu' : 'Recolher menu';
+                icon.className = recolhido
+                    ? 'fas fa-chevron-right'
+                    : 'fas fa-chevron-left';
+            });
+        });
+
         function changeLanguage(lang) {
             const translatableElements = document.querySelectorAll('[data-pt]');
             
